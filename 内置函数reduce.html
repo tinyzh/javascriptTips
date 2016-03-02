@@ -1,0 +1,12 @@
+<script>
+	var items = [{'price': 10}, {'price': 120}, {'price': 1000}];
+
+	var reducer = function add(sumSoFar,nextPrice){
+		return sumSoFar + nextPrice.price;
+	};
+
+	var total = items.reduce(reducer,0);
+
+	console.log(total);
+
+</script>

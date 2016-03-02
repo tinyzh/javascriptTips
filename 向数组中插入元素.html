@@ -1,6 +1,14 @@
 <script>
 	var arr = [1,2,3,4,5];
-
+	//向最后添加元素
+	//arr.push(6);
 	arr[arr.length] = 6;
+	
+	//向头部添加元素
+	// arr.unshift(0);直接修改原数组
+	var arr = [11].concat(arr);//返回一个新数组
+
+
+
 	console.log(arr);
 </script>
