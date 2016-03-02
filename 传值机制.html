@@ -1,0 +1,23 @@
+<script>
+	var me = {
+		'part':'something'
+	}
+	function getMe(me){
+		me = {
+			'part2':'nothing'
+		}
+	}
+	getMe(me);
+	console.log(me);  //'part':'something'
+
+
+
+	var her = {
+		'pa':'another'
+	}
+	function getHer(her){
+		her.pa = 'good';
+	}
+	getHer(her);
+	console.log(her);//'pa':'good'
+</script>
