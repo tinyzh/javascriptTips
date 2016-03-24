@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+		<script type="text/javascript">
+				//转换为大写
+				function wordsUpperCase(words){
+					var elements = [].concat(words || []);
+					for(var i=0,len=elements.length;i<len;i++){
+						console.log(elements[i].toUpperCase());
+					}
+
+				}
+
+				wordsUpperCase("cat");
+				wordsUpperCase(["bird","dog","bat"]);
+
+
+		</script>
+</body>
+</html>
