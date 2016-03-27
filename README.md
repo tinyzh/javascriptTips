@@ -1,3 +1,3 @@
 # javascriptTips
 # web-tools
-![tools](jstips-header-blog.gif)
+![tools](https://raw.githubusercontent.com/tinyzh/web-tools/master/jstips-header-blog.gif)
