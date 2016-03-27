@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script>
+		function Person(name){
+			this.name = name;
+
+			this.sayName = function(){
+				console.log('my name is: ',this.name);
+				return this;
+			};
+
+			this.changeName = function(name){
+				this.name = name;
+				return this;
+			};
+		};
+
+		var person = new Person('zc');
+		
+		person.sayName().changeName('ls').sayName();
+
+
+	
+</script>	
+</body>
+</html>
