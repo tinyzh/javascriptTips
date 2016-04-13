@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+		<script>
+			var _alert = alert;
+
+			window.alert = function(s){
+				if(confirm('是否要弹框框，内容是 '+ s + '?')){
+					_alert(s);
+				}
+			}
+
+		</script>
+
+
+		<input type="button" onclick="alert('hello world!')" value="test">	
+</body>
+</html>
