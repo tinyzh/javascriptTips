@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间委托</title>
+</head>
+<body>
+	<ul id="parent-list">
+		<li id="post-1">item 1</li>
+		<li id="post-2">item 2</li>
+		<li id="post-3">item 3</li>
+		<li id="post-4">item 4</li>
+	</ul>
+
+
+	<div id="myDiv">
+		<a href="javascript:;" class="classA">123</a>
+		<a href="javascript:;" class="classA">53215</a>
+		<a href="javascript:;" class="classA">45456</a>
+		<p class="classA">dfafdf</p>
+	</div>
+
+
+
+		<script>
+				//找到父元素  添加监听器
+				document.getElementById('parent-list').addEventListener('click',function(e){
+					// if(e.target)
+					// console.log(e.target.id);
+					if(e.target && e.target.nodeName == 'LI'){
+						// console.log(1);
+						console.log("List item",e.target.id.replace("post-",''),"was clicked!");
+					}
+				});
+
+				//获取父元素myDiv,添加监听器
+				document.getElementById('myDiv').addEventListener('click',function(e){
+					// console.log(e.target.className);
+					if(e.target && e.target.nodeName == 'A'){
+						var classes = e.target.className.split(" ");
+						// console.log(classes);
+						if(classes){
+							for(var x = 0,len = classes.length;x<len;x++){
+								if(classes[x] == "classA"){
+									console.log("是指定元素");
+									// do something
+								}
+							}
+						}
+					}
+				});
+
+
+
+
+
+		</script>
+</body>
+</html>
