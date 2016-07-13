@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>毛玻璃</title>
+	<style>
+		*{padding: 0;margin: 0;}
+		.bg{width: 600px;height: 800px;background: url(http://o831kmplo.bkt.clouddn.com/2.webp) no-repeat;position: relative;}
+		.content{
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			text-align: center;
+			line-height: 600px;
+			font-size: 20px;
+			color: #000;
+			background: inherit;
+			left: 200px;top: 300px;
+			background-position: -200px -300px;
+			/*毛玻璃*/
+			-webkit-filter:blur(10px);
+		}
+		.text{
+			position: absolute;
+			left: 200px;
+			top:300px;
+			width: 200px;
+			height: 200px;text-align: center;color: #000;font-size: 26px;text-align: center;line-height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div class="bg">
+		<div class="content"></div>
+		<div class="text">123</div>
+	</div>
+
+
+</body>
+</html>
