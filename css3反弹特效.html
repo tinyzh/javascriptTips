@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3 反弹效果</title>
+	<style>
+		#pinStarWrapper{
+
+  width: 300px;
+
+  height: 300px;
+
+  position: relative;
+
+}
+
+.pinStarLeaf{
+
+transform-origin: 30px 30px;
+
+    transition: transform 1s linear;
+    width: 60px;
+
+    height: 120px;
+
+    position: absolute;
+
+    border-radius: 60% 60% 70% 70% ;
+
+    left: 0;
+
+    right: 0;
+
+    top: 0;
+
+    bottom: 0;
+
+    margin: auto;
+
+    opacity: .5;
+
+}
+
+.pinStarLeaf:nth-of-type(1){
+
+  background-color: #B8F0F5;
+
+}
+
+.pinStarLeaf:nth-of-type(2){
+
+  background-color: #9CF3DC;
+
+}
+
+.pinStarLeaf:nth-of-type(3){
+
+  background-color: #94F3B0;
+
+}
+
+.pinStarLeaf:nth-of-type(4){
+
+  background-color: #D2F8A1;
+
+}
+
+.pinStarLeaf:nth-of-type(5){
+
+  background-color: #F3EDA2;
+
+}
+
+#pinStarCenter, #pinStarCenterChkBox{
+
+    width: 45px;
+
+    height: 50px;
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    top: -60px;
+
+    bottom: 0;
+
+    margin: auto;
+
+    background-color: #fff;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+}
+#pinStarCenterChkBox{opacity:0;}
+
+#pinStarCenter, .pinStarLeaf{
+
+  pointer-events: none;
+
+}
+
+#pinStarCenter > input[type="checkbox"]{
+
+    width: 100%;
+
+    height: 100%;
+
+    cursor: pointer;
+
+} 
+
+#pinStarCenterChkBox:checked ~ .pinStarLeaf{
+
+    transition: transform 1s cubic-bezier(.53,-0.42,.44,1.47) ;
+
+}
+
+#pinStarCenterChkBox:checked ~ .pinStarLeaf:nth-of-type(5){
+
+    transform: rotatez(35deg);
+
+}
+
+#pinStarCenterChkBox:checked ~ .pinStarLeaf:nth-of-type(4){
+
+    transform: rotatez(105deg);
+
+}
+
+#pinStarCenterChkBox:checked ~ .pinStarLeaf:nth-of-type(3){
+
+    transform: rotatez(180deg);
+
+}
+
+#pinStarCenterChkBox:checked ~ .pinStarLeaf:nth-of-type(2){
+
+    transform: rotatez(255deg);
+
+}
+
+#pinStarCenterChkBox:checked ~ .pinStarLeaf:nth-of-type(1){
+
+    transform: rotatez(325deg);
+
+}
+#pinStarCenterChkBox:checked ~ .box{
+	margin-left:200px;
+}
+
+
+.box{width:30px;height:30px;background: red;transition:all 1s cubic-bezier(.53,-0.42,.44,1.47);border-radius:50%;}
+
+	</style>
+</head>
+<body>
+<div id="pinStarWrapper">
+
+  <input type="checkbox" id="pinStarCenterChkBox">
+
+  <div class="pinStarLeaf"></div>
+
+  <div class="pinStarLeaf"></div>
+
+  <div class="pinStarLeaf"></div>
+
+  <div class="pinStarLeaf"></div>
+
+  <div class="pinStarLeaf"></div>
+
+  <div id="pinStarCenter"></div>
+  <div class="box"></div>
+
+</div> 
+	
+
+
+	
+
+</body>
+</html>
