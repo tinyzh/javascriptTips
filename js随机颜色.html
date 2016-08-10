@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js随机颜色</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		span{display: inline-block;width: 30px;height: 30px;}
+	</style>
+</head>
+<body>
+	
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+
+
+	<script src="Please-compressed.js"></script>
+	<script>
+		
+		//插件地址   http://www.checkman.io/please/
+		var $span = document.querySelectorAll('span');
+
+		for(var j of $span){
+			j.style.background = Please.make_color();
+		}
+		
+	</script>
+	
+</body>
+</html>
