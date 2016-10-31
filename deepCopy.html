@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+	<script>
+		var obj1 = {
+			'name' : 'zs',
+			'age'  : '55',
+			'other': {
+				'sex' : 'man'
+			},
+			'arr' : "[1,2,3]"
+		};
+
+
+		function deepCopy(obj){
+			var empty_obj = {};
+			for(var i in obj){
+				if(Object.prototype.toString.call(obj[i]) === '[object Object]'){
+					empty_obj[i] = deepCopy(obj[i]);
+				}else{
+					empty_obj[i] = obj[i];
+				}
+			}
+
+			return empty_obj;
+		}
+    //var obj2 = $.extend(true,{},obj1);//jquery deepCopy
+		var obj2 = deepCopy(obj1);
+
+
+	</script>
+	
+</body>
+</html>
