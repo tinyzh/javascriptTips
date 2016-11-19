@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.small-box,.big-box{float: left;border: 1px solid #ccc;position: relative;}
+
+		.big-box{width: 400px;height: 255px;overflow: hidden;margin-left: 15px;display: none;}
+		.float-box{width: 160px;height: 120px;opacity: 0.5;background:#ffffcc;cursor: move;position: absolute;display: none;}
+		.img{position: absolute;left: 0;top: 0;}
+	</style>
+</head>
+<body>
+	<div class="small-box" id="sbox">
+		<div class="float-box" id="float"></div>
+		<img src="http://o8kanx15h.bkt.clouddn.com/macbook-small.jpg" id="sImg">
+	</div>
+	<div class="big-box" id="bbox">
+		<img src="http://o8kanx15h.bkt.clouddn.com/macbook-big.jpg" id="bImg" class='img'>
+	</div>
+
+	<script>
+		var fangdajing = {
+			sBox : document.getElementById('sbox'),
+			float : document.getElementById('float'),
+			sImg : document.getElementById('sImg'),
+			bbox : document.getElementById('bbox'),
+			bImg : document.getElementById('bImg'),
+			mouseOver : function(){
+				bbox.style.display = 'block';
+				float.style.display = 'block';
+			},
+			mouseOut : function(){
+				bbox.style.display = 'none';
+				float.style.display = 'none';
+			},
+			mouseMove : function(e){
+				var _e = e || window.event;
+				// debugger;
+				var left = _e.clientX - fangdajing.sBox.offsetLeft - float.offsetWidth / 2;
+				var top = _e.clientY - fangdajing.sBox.offsetTop - float.offsetHeight / 2;
+				if(left < 0){
+					left = 0;
+				}else if(left > (fangdajing.sBox.offsetWidth - fangdajing.float.offsetWidth)){
+					left = fangdajing.sBox.offsetWidth - fangdajing.float.offsetWidth;
+				}
+
+				if(top < 0){
+					top = 0;
+				}else if(top > (fangdajing.sBox.offsetHeight - fangdajing.float.offsetHeight)){
+					top = fangdajing.sBox.offsetHeight - fangdajing.float.offsetHeight;
+				}
+
+				float.style.left = left + 'px';
+				float.style.top = top + 'px';
+
+				var percentX = left / (fangdajing.sBox.offsetWidth - fangdajing.float.offsetWidth);
+				var percentY = top / (fangdajing.sBox.offsetHeight - fangdajing.float.offsetHeight);
+
+				fangdajing.bImg.style.left = - percentX * (fangdajing.bImg.offsetWidth - fangdajing.bbox.offsetWidth) + 'px';
+				fangdajing.bImg.style.top = - percentY * (fangdajing.bImg.offsetHeight - fangdajing.bbox.offsetHeight) + 'px';
+
+
+			},
+			bindEvent : function(){
+				var self = this;
+				self.sBox.onmouseover = self.mouseOver;
+				self.sBox.onmouseout = self.mouseOut;
+				self.sBox.onmousemove = self.mouseMove;
+			},
+			init : function(){
+				var self = this;
+				self.bindEvent();
+			}
+
+		};
+
+		fangdajing.init();
+	</script>
+</body>
+</html>
