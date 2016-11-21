@@ -37,41 +37,42 @@
 			},
 			mouseMove : function(e){
 				var _e = e || window.event;
+				var self = fangdajing;
 				// debugger;
-				var left = _e.clientX - fangdajing.sBox.offsetLeft - float.offsetWidth / 2;
-				var top = _e.clientY - fangdajing.sBox.offsetTop - float.offsetHeight / 2;
+				var left = _e.clientX - self.sBox.offsetLeft - float.offsetWidth / 2;
+				var top = _e.clientY - self.sBox.offsetTop - float.offsetHeight / 2;
 				if(left < 0){
 					left = 0;
-				}else if(left > (fangdajing.sBox.offsetWidth - fangdajing.float.offsetWidth)){
-					left = fangdajing.sBox.offsetWidth - fangdajing.float.offsetWidth;
+				}else if(left > (self.sBox.offsetWidth - self.float.offsetWidth)){
+					left = self.sBox.offsetWidth - self.float.offsetWidth;
 				}
 
 				if(top < 0){
 					top = 0;
-				}else if(top > (fangdajing.sBox.offsetHeight - fangdajing.float.offsetHeight)){
-					top = fangdajing.sBox.offsetHeight - fangdajing.float.offsetHeight;
+				}else if(top > (self.sBox.offsetHeight - self.float.offsetHeight)){
+					top = self.sBox.offsetHeight - self.float.offsetHeight;
 				}
 
 				float.style.left = left + 'px';
 				float.style.top = top + 'px';
 
-				var percentX = left / (fangdajing.sBox.offsetWidth - fangdajing.float.offsetWidth);
-				var percentY = top / (fangdajing.sBox.offsetHeight - fangdajing.float.offsetHeight);
+				var percentX = left / (self.sBox.offsetWidth - self.float.offsetWidth);
+				var percentY = top / (self.sBox.offsetHeight - self.float.offsetHeight);
 
-				fangdajing.bImg.style.left = - percentX * (fangdajing.bImg.offsetWidth - fangdajing.bbox.offsetWidth) + 'px';
-				fangdajing.bImg.style.top = - percentY * (fangdajing.bImg.offsetHeight - fangdajing.bbox.offsetHeight) + 'px';
+				self.bImg.style.left = - percentX * (self.bImg.offsetWidth - self.bbox.offsetWidth) + 'px';
+				self.bImg.style.top = - percentY * (self.bImg.offsetHeight - self.bbox.offsetHeight) + 'px';
 
 
 			},
 			bindEvent : function(){
-				var self = this;
-				self.sBox.onmouseover = self.mouseOver;
-				self.sBox.onmouseout = self.mouseOut;
-				self.sBox.onmousemove = self.mouseMove;
+				
+				this.sBox.onmouseover = this.mouseOver;
+				this.sBox.onmouseout = this.mouseOut;
+				this.sBox.onmousemove = this.mouseMove;
 			},
 			init : function(){
-				var self = this;
-				self.bindEvent();
+				
+				this.bindEvent();
 			}
 
 		};
