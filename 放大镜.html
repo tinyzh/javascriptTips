@@ -37,41 +37,37 @@
 			},
 			mouseMove : function(e){
 				var _e = e || window.event;
-				var self = fangdajing;
 				// debugger;
-				var left = _e.clientX - self.sBox.offsetLeft - float.offsetWidth / 2;
-				var top = _e.clientY - self.sBox.offsetTop - float.offsetHeight / 2;
+				var left = _e.clientX - this.sBox.offsetLeft - this.float.offsetWidth / 2;
+				var top = _e.clientY - this.sBox.offsetTop - this.float.offsetHeight / 2;
 				if(left < 0){
 					left = 0;
-				}else if(left > (self.sBox.offsetWidth - self.float.offsetWidth)){
-					left = self.sBox.offsetWidth - self.float.offsetWidth;
+				}else if(left > (this.sBox.offsetWidth - this.float.offsetWidth)){
+					left = this.sBox.offsetWidth - this.float.offsetWidth;
 				}
 
 				if(top < 0){
 					top = 0;
-				}else if(top > (self.sBox.offsetHeight - self.float.offsetHeight)){
-					top = self.sBox.offsetHeight - self.float.offsetHeight;
+				}else if(top > (this.sBox.offsetHeight - this.float.offsetHeight)){
+					top = this.sBox.offsetHeight - this.float.offsetHeight;
 				}
 
 				float.style.left = left + 'px';
 				float.style.top = top + 'px';
 
-				var percentX = left / (self.sBox.offsetWidth - self.float.offsetWidth);
-				var percentY = top / (self.sBox.offsetHeight - self.float.offsetHeight);
+				var percentX = left / (this.sBox.offsetWidth - this.float.offsetWidth);
+				var percentY = top / (this.sBox.offsetHeight - this.float.offsetHeight);
 
-				self.bImg.style.left = - percentX * (self.bImg.offsetWidth - self.bbox.offsetWidth) + 'px';
-				self.bImg.style.top = - percentY * (self.bImg.offsetHeight - self.bbox.offsetHeight) + 'px';
-
+				this.bImg.style.left = - percentX * (this.bImg.offsetWidth - this.bbox.offsetWidth) + 'px';
+				this.bImg.style.top = - percentY * (this.bImg.offsetHeight - this.bbox.offsetHeight) + 'px';
 
 			},
 			bindEvent : function(){
-				
-				this.sBox.onmouseover = this.mouseOver;
-				this.sBox.onmouseout = this.mouseOut;
-				this.sBox.onmousemove = this.mouseMove;
+				this.sBox.onmouseover = this.mouseOver.bind(fangdajing);
+				this.sBox.onmouseout = this.mouseOut.bind(fangdajing);
+				this.sBox.onmousemove = this.mouseMove.bind(fangdajing);
 			},
 			init : function(){
-				
 				this.bindEvent();
 			}
 
