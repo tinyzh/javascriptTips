@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LazyMan</title>
+</head>
+<body>
+	<script>
+		function _lazyman(_name){
+			var _this = this;
+			_this.tasks = [];
+			_this.tasks.push(function(){
+				console.log('Hi! This is ' + _name + '!');
+				_this.next();
+			});
+
+			setTimeout(function(){
+				_this.next();
+			},0);
+		}
+
+		_lazyman.prototype.next = function(){
+			var _fn = this.tasks.shift();
+			_fn && _fn();
+		}
+
+		_lazyman.prototype.eat = function(_fruit){
+			var _this = this;
+			this.tasks.push(function(){
+				console.log('Eat ' + _fruit);
+				_this.next();
+			});
+			return _this;
+		}
+
+		_lazyman.prototype.sleep = function(_time){
+			var _this = this;
+			_this.tasks.push(function(){
+				setTimeout(function(){
+					console.log('Wake up after ' + _time);
+					_this.next();
+				},_time);
+			})
+			return _this;
+		}
+
+		_lazyman.prototype.sleepFirst = function(_time){
+			var _this = this;
+			_this.tasks.unshift(function(){
+				setTimeout(function(){
+					console.log('Wake up after ' + _time);
+					_this.next();
+				},_time);
+			})
+			return _this;
+		}
+
+		var LazyMan = function(_name){
+			return new _lazyman(_name);
+		}
+
+		LazyMan('zhangchao').eat('milk').sleep(5000).sleepFirst(2000);
+
+
+
+	</script>
+</body>
+</html>
