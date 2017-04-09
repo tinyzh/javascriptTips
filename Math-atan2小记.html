@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>123</title>
+	<style>
+		*{padding: 0;margin:0;}
+		.line{width: 200px;height: 2px;background: #ccc;position: fixed;left: 100px;top: 100px;}
+
+	</style>
+</head>
+<body>
+<div class="line"></div>
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+// atan2 方法返回一个 -pi 到 pi 之间的数值，表示点 (x, y) 对应的偏移角度。这是一个逆时针角度，以弧度为单位，正X轴和点 (x, y) 与原点连线 之间
+// 要把弧度计算为角度 就得知道每一个弧度等于多少角度
+// 把一个圆周分成360等分，每一等份就是1度(1度=60分，1分=60秒) 这种角度制叫度分秒制
+// 半径长的弧长所对的圆心角就是一弧度，如此一个圆周即2π弧度，这种角度叫弧度制   
+//因为一般1个pi 为180度  所以每个弧度的角度为  pi/180  然后把X,Y的弧度值，除以刚刚计算出来的
+
+
+
+$(document).on('mousemove',function(e){
+	var x = e.pageX;
+	var y = e.pageY;
+	var origin = {x:200,y:100} // 当前元素的中心点
+
+	// 计算出当前鼠标相对于元素中心点的坐标
+	x = x - origin.x;
+	y = origin.y - y;
+
+	atan2(y,x);
+});
+	function atan2(y,x){
+		var degree = Math.atan2(y,x) / (Math.PI / 180);
+		console.log(degree);
+		
+			degree = -degree; 
+			//取反
+			// 因为 Math.atan2(5,5) 的时候，是按逆时针方向计算的  是45deg  但是旋转是按照正时针方向旋转，所以变为-45deg
+			// 当Math.atan2(-5,5)的时候，当前的值为 -45deg,所以也要取反，变为+45deg;
+		
+		
+		$('.line').css('transform','rotate('+degree+'deg)');
+	}		
+</script>		
+</body>
+</html>
